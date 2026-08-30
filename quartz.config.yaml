@@ -4,7 +4,9 @@ configuration:
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
-  analytics: null
+  analytics:
+    provider: goatcounter
+    websiteId: 2bytesgoat
   locale: en-US
   baseUrl: bits.2bytesgoat.com
   ignorePatterns:
