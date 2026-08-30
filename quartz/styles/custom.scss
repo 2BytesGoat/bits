@@ -69,6 +69,16 @@
   white-space: nowrap;
 }
 
+// label takes the logo's purple in light mode; dark mode keeps the theme's
+// light text color (purple would vanish on the dark sidebar)
+:root .page-title a::after {
+  color: #260141; // exact purple from logo_light.png
+}
+
+:root[saved-theme="dark"] .page-title a::after {
+  color: inherit;
+}
+
 // hide the original "bits" text node without display:none (a11y)
 .page-title a {
   font-size: 0;
