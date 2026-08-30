@@ -1,0 +1,201 @@
+// Inline browser script for the Google Translate component.
+// Bundled as raw text (`?raw`) and attached as `beforeDOMLoaded`; must stay
+// a self-contained plain script (no import/export). Quartz joins all
+// beforeDOMLoaded scripts into prescript.js which runs in <head>, so we must
+// defer until the component markup exists and re-init on SPA navigation.
+;(function () {
+  var TARGET_ID = "google-translate-root"
+  var CLASS_BUTTON = "google-translate-button"
+  var MENU_ID = "google-translate-menu"
+  var COOKIE_NAME = "googtrans"
+  var state = { opts: null }
+
+  var LANGUAGES = [
+    ["en", "English"],
+    ["es", "Español"],
+    ["zh-CN", "中文 (简体)"],
+    ["ja", "日本語"],
+    ["de", "Deutsch"],
+    ["fr", "Français"],
+    ["pt", "Português"],
+    ["ru", "Русский"],
+    ["ro", "Română"],
+  ]
+
+  function readCookie() {
+    var match = document.cookie.match(new RegExp("(?:^|;\\s*)" + COOKIE_NAME + "=([^;]*)"))
+    if (!match) return ""
+    // value is either "/en/fr" or "en/fr"; last segment is the target language
+    var parts = decodeURIComponent(match[1]).split("/").filter(Boolean)
+    return parts.length >= 2 ? parts[parts.length - 1] : parts[0] || ""
+  }
+
+  function isLocalHost(host) {
+    return /^(localhost|127(\.\d+){3}|\[::1\])(:\d+)?$/.test(host)
+  }
+
+  function writeCookie(value, pageLanguage) {
+    var host = window.location.hostname
+    var domain = host.split(".").slice(-2).join(".")
+    var domainPart = isLocalHost(host) || host === domain ? "" : ";domain=." + domain
+    if (value) {
+      document.cookie =
+        COOKIE_NAME + "=/" + pageLanguage + "/" + value + ";path=/" + domainPart + ";max-age=31536000;samesite=lax"
+    } else {
+      // expire on every plausible domain variant
+      document.cookie = COOKIE_NAME + "=;path=/;max-age=0"
+      document.cookie = COOKIE_NAME + "=;path=/;domain=." + domain + ";max-age=0"
+      if (!isLocalHost(host) && domain !== host) {
+        document.cookie = COOKIE_NAME + "=;path=/;domain=" + host + ";max-age=0"
+      }
+    }
+  }
+
+  function ensureElementScript(opts) {
+    // (re)create the TranslateElement combo box inside the hidden host div
+    window.googleTranslateElementInit = function () {
+      initElement()
+    }
+
+    if (document.getElementById("google-translate-script") === null) {
+      var script = document.createElement("script")
+      script.id = "google-translate-script"
+      script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      script.async = true
+      document.head.appendChild(script)
+    }
+  }
+
+  function initElement() {
+    if (!window.google || !window.google.translate) return
+    var target = document.getElementById(TARGET_ID)
+    if (!target) return
+    target.innerHTML = ""
+    var config = {
+      pageLanguage: state.opts.pageLanguage,
+      autoDisplay: false,
+      layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+    }
+    if (state.opts.includedLanguages) {
+      config.includedLanguages = state.opts.includedLanguages
+    }
+    new window.google.translate.TranslateElement(config, TARGET_ID)
+  }
+
+  function translateTo(lang) {
+    var combo = document.querySelector(".goog-te-combo")
+    if (combo) {
+      combo.value = lang
+      combo.dispatchEvent(new Event("change"))
+      if (!lang) writeCookie("", state.opts.pageLanguage)
+      return
+    }
+    if (lang) {
+      // element not initialized yet: persist choice and reload so it applies
+      writeCookie(lang, state.opts.pageLanguage)
+      window.location.reload()
+    }
+  }
+
+  function activeLanguage() {
+    return readCookie() || state.opts.pageLanguage
+  }
+
+  function positionMenu(menu) {
+    var btn = document.querySelector("." + CLASS_BUTTON)
+    if (!btn) return
+    var rect = btn.getBoundingClientRect()
+    menu.style.top = Math.min(rect.bottom + 8, window.innerHeight - 260) + "px"
+    menu.style.left = rect.left + "px"
+  }
+
+  function buildMenu() {
+    var menu = document.createElement("ul")
+    menu.id = MENU_ID
+    var current = activeLanguage()
+
+    for (var i = 0; i < LANGUAGES.length; i++) {
+      ;(function () {
+        var code = LANGUAGES[i][0]
+        var name = LANGUAGES[i][1]
+        var item = document.createElement("li")
+        var langBtn = document.createElement("button")
+        langBtn.type = "button"
+        langBtn.textContent = name
+        langBtn.setAttribute("data-lang", code)
+        if (current === code) langBtn.classList.add("gt-active")
+        langBtn.addEventListener("click", function () {
+          menu.classList.remove("gt-open")
+          if (code === activeLanguage()) return
+          if (code === state.opts.pageLanguage) {
+            // the widget cannot un-translate itself; restore via reload
+            writeCookie("", state.opts.pageLanguage)
+            window.location.reload()
+          } else {
+            translateTo(code)
+          }
+        })
+        item.appendChild(langBtn)
+        menu.appendChild(item)
+      })()
+    }
+
+    return menu
+  }
+
+  function rebuildMenu() {
+    var existing = document.getElementById(MENU_ID)
+    if (existing) existing.remove()
+    var menu = buildMenu()
+    document.body.appendChild(menu)
+    return menu
+  }
+
+  function boot() {
+    var btn = document.querySelector("." + CLASS_BUTTON)
+    if (!btn) return
+
+    state.opts = {
+      pageLanguage: btn.getAttribute("data-page-language") || "en",
+      includedLanguages: btn.getAttribute("data-included-languages") || "",
+    }
+
+    ensureElementScript(state.opts)
+    rebuildMenu()
+  }
+
+  // one delegated listener handles button opens + outside clicks, immune to SPA re-renders
+  document.addEventListener("click", function (ev) {
+    var target = ev.target
+    var openElement = target && target.closest ? target.closest("." + CLASS_BUTTON) : null
+    if (openElement) {
+      ev.preventDefault()
+      ev.stopPropagation()
+      var menu = document.getElementById(MENU_ID) || rebuildMenu()
+      positionMenu(menu)
+      menu.classList.toggle("gt-open")
+      return
+    }
+    var openMenu = document.getElementById(MENU_ID)
+    if (openMenu && openMenu.classList.contains("gt-open") && !openMenu.contains(target)) {
+      openMenu.classList.remove("gt-open")
+    }
+  })
+
+  // prescript runs in <head>: defer boot until the component markup exists
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot)
+  } else {
+    boot()
+  }
+
+  // SPA navigation: quartz-root is replaced, so re-init the combo + menu
+  document.addEventListener("nav", function () {
+    if (!state.opts) {
+      boot()
+      return
+    }
+    initElement()
+    rebuildMenu()
+  })
+})()

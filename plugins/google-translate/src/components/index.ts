@@ -1,0 +1,1 @@
+export { GoogleTranslate, default as GoogleTranslateConstructor } from "./GoogleTranslate"

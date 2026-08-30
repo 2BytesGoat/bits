@@ -1,0 +1,113 @@
+/* Google Translate widget styling.
+   Plain CSS (lightningcss consumes this directly): hides Google's own
+   chrome (banner/iframe/tooltip) and styles the language menu to match
+   Quartz theme variables. */
+
+/* Google's banner shifts the page down 40px — neutralize it. */
+body {
+  top: 0 !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-gadget-icon,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-te-ftab {
+  display: none !important;
+}
+
+/* hidden host div that the TranslateElement combo box mounts into */
+.gt-hidden-host {
+  display: none;
+}
+
+.gt-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.google-translate-button {
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  background: none;
+  border: none;
+  width: 20px;
+  height: 32px;
+  margin: 0;
+  text-align: inherit;
+  flex-shrink: 0;
+}
+
+.google-translate-button svg {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: calc(50% - 10px);
+  fill: var(--darkgray);
+  transition: opacity 0.1s ease;
+}
+
+.google-translate-button:hover svg {
+  fill: var(--gray);
+}
+
+/* language popover: positioned via JS next to the toolbar button */
+#google-translate-menu {
+  position: fixed;
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  max-height: 60vh;
+  overflow-y: auto;
+  min-width: 9rem;
+}
+
+#google-translate-menu.gt-open {
+  display: flex;
+}
+
+#google-translate-menu button {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-family: var(--bodyFont);
+  color: var(--darkgray);
+  white-space: nowrap;
+}
+
+#google-translate-menu button:hover {
+  background: var(--lightgray);
+  color: var(--dark);
+}
+
+#google-translate-menu button.gt-active {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+/* dark mode support (Quartz sets saved-theme on :root) */
+:root[saved-theme="dark"] #google-translate-menu {
+  background: var(--dark);
+}
+
+:root[saved-theme="dark"] #google-translate-menu button {
+  color: var(--light);
+}
+
+:root[saved-theme="dark"] #google-translate-menu button:hover {
+  background: var(--gray);
+  color: var(--light);
+}

@@ -1,0 +1,61 @@
+{
+  "name": "google-translate",
+  "version": "0.1.0",
+  "description": "Google Translate widget component for Quartz - client-side page translation",
+  "type": "module",
+  "license": "MIT",
+  "author": "2BytesGoat",
+  "private": true,
+  "keywords": [
+    "quartz",
+    "quartz-plugin",
+    "translate",
+    "google-translate",
+    "component"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "quartz": {
+    "name": "google-translate",
+    "displayName": "Google Translate",
+    "description": "Client-side Google Translate widget with a language picker in the toolbar",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 40,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "pageLanguage": "en",
+      "includedLanguages": "",
+      "autoDisplay": false
+    },
+    "components": {
+      "GoogleTranslate": {
+        "displayName": "Google Translate",
+        "defaultPosition": "left",
+        "defaultPriority": 40
+      }
+    }
+  }
+}
