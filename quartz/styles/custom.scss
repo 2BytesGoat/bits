@@ -31,16 +31,46 @@
   padding-bottom: 0;
 }
 
-// sidebar title (the clickable "bits" home link) replaced by the goat logo;
-// text stays in the DOM for screen readers / no-CSS, just visually hidden.
-// No dark-mode filter: the dark purple reads fine on the dark sidebar too.
+// sidebar title: goat logo + site name, the whole thing links home.
+// Logo is dark purple (#2b0a4d-ish); on dark mode recolor it to the site's
+// light text color via CSS mask (keeps it crisp, no filter artifacts).
+// "bits" text stays in the DOM for screen readers; the visible label is the
+// mask overlay text below.
 .page-title a {
-  display: block;
-  width: 56px;
-  height: 56px;
-  text-indent: -9999px;
-  overflow: hidden;
-  background: url("/static/logo_bw.png") center / contain no-repeat;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.page-title a::before {
+  content: "";
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background-color: var(--darkgray);
+  mask: url("/static/logo_bw.png") center / contain no-repeat;
+  -webkit-mask: url("/static/logo_bw.png") center / contain no-repeat;
+}
+
+.page-title a::after {
+  content: "Bits & Bites";
+  font-family: var(--titleFont);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+// hide the original "bits" text node without display:none (a11y)
+.page-title a {
+  font-size: 0;
+  text-indent: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-title a::after {
+  font-size: 1.3rem; // re-set inside ::after since parent is 0
 }
 
 // ```recipe-summary blocks render as centered muted strips (recipe meta lines)
