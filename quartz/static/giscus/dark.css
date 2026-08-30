@@ -63,17 +63,17 @@ main {
   --color-fg-default: #ebebec; /* --dark */
   --color-fg-muted: #d4d4d4; /* --darkgray */
   --color-fg-subtle: #d4d4d4; /* --darkgray */
-  --color-canvas-default: #0d1117;
+  --color-canvas-default: #161618; /* --light */
   --color-canvas-overlay: #161b22;
   --color-canvas-inset: #010409;
-  --color-canvas-subtle: #161b22;
+  --color-canvas-subtle: #1c1c1f;
   --color-border-default: #30363d;
   --color-border-muted: #21262d;
   --color-neutral-muted: rgb(110 118 129 / 40%);
-  --color-accent-fg: #2f81f7;
-  --color-accent-emphasis: #1f6feb;
-  --color-accent-muted: rgb(56 139 253 / 40%);
-  --color-accent-subtle: rgb(56 139 253 / 10%);
+  --color-accent-fg: #7b97aa; /* --secondary */
+  --color-accent-emphasis: #7b97aa; /* --secondary */
+  --color-accent-muted: rgb(123 151 170 / 40%); /* --secondary */
+  --color-accent-subtle: rgb(123 151 170 / 10%); /* --secondary */
   --color-success-fg: #3fb950;
   --color-attention-fg: #d29922;
   --color-attention-muted: rgb(187 128 9 / 40%);
@@ -96,4 +96,25 @@ main .pagination-loader-container {
 
 main .gsc-loading-image {
   background-image: url("https://github.githubassets.com/images/mona-loading-dark.gif");
+}
+
+/* giscus flips .gsc-emoji from inline to inline-block on hover/focus while
+   scaling 1.5x, which re-baselines the box and makes the emoji jump toward
+   the button's bottom-left. Keeping it inline-block at rest removes the
+   layout shift, so the scale transform grows it in place. */
+main .gsc-emoji {
+  display: inline-block;
+  vertical-align: text-top;
+  transform-origin: center;
+}
+
+/* reactions-only mode: giscus has no comments=false flag, so hide EVERYTHING
+   except the reaction row. The comment box, threads, sorting controls and
+   header all live inside .gsc-comments. Belt-and-suspenders targets in case
+   the wrapper rule misses a variant. */
+main .gsc-comments,
+main .gsc-comment-box,
+main .gsc-timeline,
+main .gsc-header {
+  display: none !important;
 }

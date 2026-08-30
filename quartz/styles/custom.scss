@@ -1,3 +1,66 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+// callouts: no block gaps by default; a <p> (i.e. a blank line was used in
+// markdown) gets a small gap above only — headings hug their own list
+.callout {
+  & > .callout-content {
+    & > ul,
+    & > ol {
+      margin-block: 0;
+    }
+    & > p {
+      margin-top: 0.4rem;
+      margin-bottom: 0;
+    }
+    & > p:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+// uniform breathing room below the last line of a callout
+// (trailing blank lines in markdown emit no HTML, so padding is the reliable way)
+.callout > .callout-content {
+  padding-bottom: 1rem;
+}
+
+// keep collapsed callouts tight
+.callout.is-collapsed .callout-content {
+  padding-bottom: 0;
+}
+
+// ```recipe-summary blocks render as centered muted strips (recipe meta lines)
+pre[data-language="recipe-summary"] {
+  border: none;
+  background: transparent;
+  padding: 0.5rem 0;
+  margin-block: 0.5rem 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--secondary);
+
+  // strip is informational; suppress the copy button injected by the
+  // syntax-highlighting plugin's clipboard script
+  & .clipboard-button {
+    display: none;
+  }
+
+  & code {
+    background: transparent;
+    padding: 0;
+    display: block;
+    color: inherit;
+
+    & [data-line] {
+      display: block;
+
+      // suppress code-block line numbers inherited from base.scss
+      &::before {
+        content: none;
+        counter-increment: none;
+      }
+    }
+  }
+}

@@ -191,13 +191,24 @@ plugins:
       priority: 5
       condition: not-index
   - source: "@quartz-community/comments"
-    enabled: false
+    enabled: true
     options:
       provider: giscus
-      options: {}
+      options:
+        # repoId + categoryId: Announcements category on 2BytesGoat/bits
+        repo: 2BytesGoat/bits
+        repoId: R_kgDOUIQY9A
+        category: Announcements
+        categoryId: DIC_kwDOUIQY9M4DEgzi
+        reactionsEnabled: true
+        inputPosition: top
+        mapping: pathname
+        strict: true
+        lang: en
     layout:
       position: afterBody
       priority: 10
+      condition: not-index
   - source: "@quartz-community/footer"
     enabled: true
     options:
@@ -230,7 +241,7 @@ plugins:
         - tags
         - aliases
       excludedProperties: []
-      hidePropertiesView: false
+      hidePropertiesView: true
       delimiters: ---
       language: yaml
     order: 5
