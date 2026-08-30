@@ -45,14 +45,14 @@
 
 .page-title a::before {
   content: "";
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
   flex-shrink: 0;
   background: url("/static/logo_light.png") center / contain no-repeat;
 
   @media all and ($mobile) {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
   }
 }
 
