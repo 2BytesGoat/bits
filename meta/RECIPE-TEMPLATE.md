@@ -3,6 +3,9 @@
 Copy everything below the line into a new file, then fill the brackets.
 Name the file in Title Case (`Slow Cooker Chicken Noodle Soup.md`, not `slow-cooker-chicken-noodle-soup.md`).
 
+Before starting: pick from `thoughts/INBOX.md` (cravings/ideas live there). After publishing:
+mark the INBOX entry composted and refresh the hand-curated queue on `content/index.md` if it changed.
+
 ## Fill-in template
 
 ---

@@ -21,8 +21,9 @@ This is **bits** — Giani's side site on `bits.2bytesgoat.com`, separate repo (
 - Quartz v5 config: `quartz.config.yaml` (YAML now, not TS like the main v4 blog)
 - `@quartz-community/cname` plugin emits `CNAME` from `baseUrl` at build — no static CNAME file
 - Footer links: GitHub repo + main blog
-- No analytics (`analytics: null`)
+- Analytics: GoatCounter (`quartz.config.yaml` → `configuration.analytics`, panel at `2bytesgoat.goatcounter.com`)
 - Filenames Title Case, one canonical tag, deliberate `draft` flag (same as main blog)
+- Recipe ideas pipeline: `thoughts/INBOX.md` (dump → compost → `[recipe]` promotes to `content/`) — see `meta/RECIPE-TEMPLATE.md`
 - Voice: still read `meta/VOICE.md` / `meta/PERSONA.md` / `meta/FINGERPRINT.md` **from the main repo** before ghostwriting anything here
 
 Sign-off applies here too: Peace 🐐
