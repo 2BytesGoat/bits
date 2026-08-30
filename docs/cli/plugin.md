@@ -151,7 +151,7 @@ If `plugin install` fails, hangs, or OOMs on your machine, lower the concurrency
 # Install one plugin at a time (safest, slowest)
 npx quartz plugin install --latest -c 1
 
-# Two at a time — usually a good balance on 4 GB machines
+# Two at a time - usually a good balance on 4 GB machines
 npx quartz plugin install --latest --concurrency 2
 ```
 
@@ -180,7 +180,7 @@ npx quartz plugin prune            # remove orphaned plugins
 
 ### Setting Up from Config
 
-When setting up on a new machine or in CI, `install --from-config` ensures your installed plugins match your config — installing missing plugins and removing any that are no longer referenced:
+When setting up on a new machine or in CI, `install --from-config` ensures your installed plugins match your config - installing missing plugins and removing any that are no longer referenced:
 
 ```shell
 npx quartz plugin install --from-config

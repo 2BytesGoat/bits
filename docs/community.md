@@ -16,7 +16,7 @@ npx quartz plugin add <github-url>
 ```
 
 <!-- Add community plugins here as they become available -->
-<!-- Format: - **[Plugin Name](link)** — Brief description -->
+<!-- Format: - **[Plugin Name](link)** - Brief description -->
 
 _No community plugins listed yet. Be the first to share yours!_
 
@@ -25,7 +25,7 @@ _No community plugins listed yet. Be the first to share yours!_
 Tools, scripts, and integrations built by the community to work with Quartz.
 
 <!-- Add tools here -->
-<!-- Format: - **[Tool Name](link)** — Brief description -->
+<!-- Format: - **[Tool Name](link)** - Brief description -->
 
 _No community tools listed yet._
 
@@ -34,7 +34,7 @@ _No community tools listed yet._
 Custom themes, CSS snippets, and starter templates for Quartz sites.
 
 <!-- Add templates/themes here -->
-<!-- Format: - **[Name](link)** — Brief description -->
+<!-- Format: - **[Name](link)** - Brief description -->
 
 _No community templates listed yet._
 
@@ -43,7 +43,7 @@ _No community templates listed yet._
 Community-written guides, blog posts, and tutorials about using Quartz.
 
 <!-- Add guides here -->
-<!-- Format: - **[Title](link)** by Author — Brief description -->
+<!-- Format: - **[Title](link)** by Author - Brief description -->
 
 _No community guides listed yet._
 
@@ -51,7 +51,7 @@ _No community guides listed yet._
 
 Projects and tools in the digital garden / PKM ecosystem that pair well with Quartz.
 
-- **[Obsidian](https://obsidian.md/)** — Knowledge base and note-taking app (recommended editor for Quartz content)
+- **[Obsidian](https://obsidian.md/)** - Knowledge base and note-taking app (recommended editor for Quartz content)
 
 ---
 

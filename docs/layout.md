@@ -169,14 +169,14 @@ You can also checkout the guide on [[creating components]] if you're interested 
 
 ### Page Frames
 
-Page frames control the overall HTML structure of a page — specifically, how the layout slots (sidebars, header, content, footer) are arranged inside the page shell. Different page types can use different frames to produce fundamentally different layouts.
+Page frames control the overall HTML structure of a page - specifically, how the layout slots (sidebars, header, content, footer) are arranged inside the page shell. Different page types can use different frames to produce fundamentally different layouts.
 
 Quartz ships with three built-in frames:
 
 | Frame        | Description                                                                                                                                                    | Used by                                     |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
 | `default`    | Three-column layout with left sidebar, center content (header, beforeBody, content, afterBody), right sidebar, and footer. This is the standard Quartz layout. | ContentPage, FolderPage, TagPage, BasesPage |
-| `full-width` | No sidebars. Single center column spanning the full width with header, content, afterBody, and footer.                                                         | —                                           |
+| `full-width` | No sidebars. Single center column spanning the full width with header, content, afterBody, and footer.                                                         | -                                           |
 | `minimal`    | No sidebars, no header or beforeBody chrome. Only content and footer.                                                                                          | NotFoundPage (404)                          |
 
 Plugins can also provide their own frames. For example, the `canvas-page` plugin ships a `"canvas"` frame that provides a fullscreen canvas with a togglable sidebar.

@@ -335,7 +335,7 @@ async function regeneratePluginIndex() {
       for (const n of conflicting) {
         console.warn(
           styleText("yellow", `⚠`),
-          `Export "${n}" conflicts across plugins — use plugins["${pluginName}"].${n} in quartz.ts`,
+          `Export "${n}" conflicts across plugins - use plugins["${pluginName}"].${n} in quartz.ts`,
         )
       }
     }
@@ -417,10 +417,10 @@ export async function handlePluginInstallUnified({
       console.log("─".repeat(header.length))
       for (const row of rows) {
         if (row.entry.commit === "local") {
-          console.log(renderRow(row, "local", "—", styleText("green", "local")))
+          console.log(renderRow(row, "local", "-", styleText("green", "local")))
           continue
         }
-        console.log(renderRow(row, row.entry.commit.slice(0, 7), "—", styleText("cyan", "⋯")))
+        console.log(renderRow(row, row.entry.commit.slice(0, 7), "-", styleText("cyan", "⋯")))
       }
     }
 
@@ -429,7 +429,7 @@ export async function handlePluginInstallUnified({
         return Promise.resolve({
           index,
           installed: "local",
-          latest: "—",
+          latest: "-",
           status: "local",
         })
       }
@@ -528,11 +528,11 @@ export async function handlePluginInstallUnified({
           console.log()
           console.log(`Found ${orphans.length} orphaned plugin(s) in lockfile:\n`)
           for (const name of orphans) {
-            console.log(`  ${styleText("yellow", name)} — in lockfile but not in config`)
+            console.log(`  ${styleText("yellow", name)} - in lockfile but not in config`)
           }
           console.log()
           console.log(
-            styleText("cyan", "Dry run — no changes made. Re-run without --dry-run to resolve."),
+            styleText("cyan", "Dry run - no changes made. Re-run without --dry-run to resolve."),
           )
         }
         return
@@ -546,7 +546,7 @@ export async function handlePluginInstallUnified({
       console.log(`Found ${missing.length} uninstalled plugin(s) in config:\n`)
       for (const entry of missing) {
         const name = extractPluginName(entry.source)
-        console.log(`  ${styleText("yellow", name)} — ${formatSource(entry.source)}`)
+        console.log(`  ${styleText("yellow", name)} - ${formatSource(entry.source)}`)
       }
       console.log()
 
@@ -554,12 +554,12 @@ export async function handlePluginInstallUnified({
         if (orphans.length > 0) {
           console.log(`Found ${orphans.length} orphaned plugin(s) in lockfile:\n`)
           for (const name of orphans) {
-            console.log(`  ${styleText("yellow", name)} — in lockfile but not in config`)
+            console.log(`  ${styleText("yellow", name)} - in lockfile but not in config`)
           }
           console.log()
         }
         console.log(
-          styleText("cyan", "Dry run — no changes made. Re-run without --dry-run to resolve."),
+          styleText("cyan", "Dry run - no changes made. Re-run without --dry-run to resolve."),
         )
         return
       }
@@ -716,7 +716,7 @@ export async function handlePluginInstallUnified({
           console.log(
             styleText(
               "yellow",
-              `⚠ ${name} is a local plugin not in config — skipping (remove manually with 'plugin remove')`,
+              `⚠ ${name} is a local plugin not in config - skipping (remove manually with 'plugin remove')`,
             ),
           )
           continue
@@ -767,7 +767,7 @@ export async function handlePluginInstallUnified({
     for (const [name, entry] of entries) {
       const sourceLabel = entry.source ? formatSource(entry.source) : entry.resolved
       const commitLabel = entry.commit === "local" ? "local" : entry.commit.slice(0, 7)
-      console.log(`  ${styleText("yellow", name)} — ${sourceLabel} (${commitLabel})`)
+      console.log(`  ${styleText("yellow", name)} - ${sourceLabel} (${commitLabel})`)
     }
     return
   }
@@ -1591,7 +1591,7 @@ export async function handlePluginStatus() {
   const enabledWidth = Math.max("enabled".length, "disabled".length) + 2
   const updateWidth =
     Math.max(
-      "— local".length,
+      "- local".length,
       "⋯".length,
       "✓ up to date".length,
       "↑ update available".length,
@@ -1614,7 +1614,7 @@ export async function handlePluginStatus() {
   const updateDisplay = (status) => {
     switch (status) {
       case "local":
-        return { text: "— local", label: styleText("gray", "— local") }
+        return { text: "- local", label: styleText("gray", "- local") }
       case "up_to_date":
         return { text: "✓ up to date", label: styleText("green", "✓ up to date") }
       case "update_available":
@@ -1723,18 +1723,18 @@ export async function handlePluginPrune({ dryRun = false } = {}) {
   const orphans = Object.keys(lockfile.plugins).filter((name) => !configuredNames.has(name))
 
   if (orphans.length === 0) {
-    console.log(styleText("green", "✓ No orphaned plugins found — nothing to prune"))
+    console.log(styleText("green", "✓ No orphaned plugins found - nothing to prune"))
     return
   }
 
   console.log(`Found ${orphans.length} orphaned plugin(s):\n`)
   for (const name of orphans) {
-    console.log(`  ${styleText("yellow", name)} — in lockfile but not in config`)
+    console.log(`  ${styleText("yellow", name)} - in lockfile but not in config`)
   }
   console.log()
 
   if (dryRun) {
-    console.log(styleText("cyan", "Dry run — no changes made. Re-run without --dry-run to prune."))
+    console.log(styleText("cyan", "Dry run - no changes made. Re-run without --dry-run to prune."))
     return
   }
 

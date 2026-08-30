@@ -61,7 +61,7 @@ When enabled, this plugin renders a collapsible "Properties" panel before the pa
 - **Numbers** are rendered in a monospace font.
 - **Objects** are rendered as JSON in a code block.
 - **Tags** get special treatment: they are rendered as highlighted links that point to the corresponding tag page.
-- **Null/undefined** values are shown as an em-dash (—).
+- **Null/undefined** values are shown as an em-dash (-).
 
 ### Per-note overrides
 
@@ -82,7 +82,7 @@ quartz-properties-collapse: false
 
 ## Supported frontmatter
 
-Quartz supports the following frontmatter fields. Where multiple keys are listed, they are aliases — the first matching key is used.
+Quartz supports the following frontmatter fields. Where multiple keys are listed, they are aliases - the first matching key is used.
 
 | Field              | Keys                                              | Description                                                                                                                                                                                                                        |
 | ------------------ | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

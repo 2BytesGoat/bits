@@ -1,10 +1,10 @@
-# INBOX — dump everything here, zero formatting
+# INBOX - dump everything here, zero formatting
 
 > Templates (steal these lines):
 >
 > - `Idea:` dish you could make/write someday
 > - `Craving:` thing you want to eat soon (becomes a recipe candidate)
-> - `Ate:` cooked today — how it went, one line (post material if interesting)
+> - `Ate:` cooked today - how it went, one line (post material if interesting)
 > - `Leftover:` needs using up → run a pantry-tag search for what pairs
 > - `Link:` recipe site post worth stealing (+ one line what to steal)
 >
@@ -15,6 +15,6 @@
 
 ## Seed
 
-- `Craving` [recipe] more slow cooker stuff — first one (chicken noodle soup) went well
-- `Idea` [recipe] papanași — Romanian, would be the first dessert + first fried thing here
+- `Craving` [recipe] more slow cooker stuff - first one (chicken noodle soup) went well
+- `Idea` [recipe] papanași - Romanian, would be the first dessert + first fried thing here
 - `Idea` [note] recommender idea: script that takes "what's in the fridge" list → matches recipes by pantry tags, ranks by fewest missing

@@ -13,7 +13,7 @@ There are two ways to get started. Pick whichever you prefer:
 ### Option A: Use the GitHub Template (Recommended)
 
 > [!tip] Why this option?
-> Using the template creates your own repository in one click — no need to reconfigure Git remotes later.
+> Using the template creates your own repository in one click - no need to reconfigure Git remotes later.
 
 1. Go to the [Quartz repository](https://github.com/jackyzha0/quartz) and click **Use this template** → **Create a new repository**
 2. Give your repository a name (e.g. `quartz`, `notes`, `garden`), choose public or private, then click **Create repository**
@@ -58,13 +58,13 @@ npx quartz create
 
 This will prompt you for:
 
-- A **template** (`default`, `obsidian`, `ttrpg`, `blog`) — pick the one that matches your use case. See [[create#Templates]] for details on each.
-- A **content strategy** — choose how to populate the `content/` folder:
+- A **template** (`default`, `obsidian`, `ttrpg`, `blog`) - pick the one that matches your use case. See [[create#Templates]] for details on each.
+- A **content strategy** - choose how to populate the `content/` folder:
   - **new**: Start with an empty folder
   - **copy**: Copy files from an existing folder (e.g. your Obsidian vault)
   - **symlink**: Link to an existing folder so changes sync automatically
-- A **base URL** — the URL where your site will be deployed (e.g. `mysite.github.io/quartz`). Don't include `https://`.
-- A **link resolution** strategy — how to resolve internal links (`shortest`, `absolute`, or `relative`). Skipped for Obsidian and TTRPG templates.
+- A **base URL** - the URL where your site will be deployed (e.g. `mysite.github.io/quartz`). Don't include `https://`.
+- A **link resolution** strategy - how to resolve internal links (`shortest`, `absolute`, or `relative`). Skipped for Obsidian and TTRPG templates.
 
 For non-interactive usage and more details, see the [[create|`quartz create` CLI reference]].
 
@@ -108,7 +108,7 @@ To publish your site, you'll need your own GitHub repository. This section is fo
 
 ### Create the Repository
 
-Create a new repository on [GitHub.com](https://github.com/new). Do **not** initialize it with a README, license, or `.gitignore` — Quartz already includes these files, and duplicating them will cause merge conflicts on your first push.
+Create a new repository on [GitHub.com](https://github.com/new). Do **not** initialize it with a README, license, or `.gitignore` - Quartz already includes these files, and duplicating them will cause merge conflicts on your first push.
 
 ![[github-init-repo-options.png]]
 
@@ -129,7 +129,7 @@ git remote set-url origin REMOTE-URL
 ```
 
 > [!tip]
-> You don't need to add an `upstream` remote manually — `npx quartz create` already configured it for you. The upstream remote is used by `npx quartz upgrade` to pull in future Quartz updates.
+> You don't need to add an `upstream` remote manually - `npx quartz create` already configured it for you. The upstream remote is used by `npx quartz upgrade` to pull in future Quartz updates.
 
 ### Push Your Site
 
@@ -156,6 +156,6 @@ npx quartz sync
 
 ## Next Steps
 
-- **[[authoring-content|Authoring Content]]** — Write and organize your notes
-- **[[hosting|Hosting]]** — Deploy your site to GitHub Pages, Cloudflare, Netlify, or Vercel
-- **[[configuration|Configuration]]** — Customize your site's appearance and behavior
+- **[[authoring-content|Authoring Content]]** - Write and organize your notes
+- **[[hosting|Hosting]]** - Deploy your site to GitHub Pages, Cloudflare, Netlify, or Vercel
+- **[[configuration|Configuration]]** - Customize your site's appearance and behavior

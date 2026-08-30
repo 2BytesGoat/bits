@@ -1,7 +1,7 @@
 import { PageFrame, PageFrameProps } from "./types"
 
 /**
- * Minimal page frame — no sidebars, no header/footer chrome. Only the
+ * Minimal page frame - no sidebars, no header/footer chrome. Only the
  * page body is rendered with a thin wrapper, plus the footer for legal/link
  * obligations.
  *

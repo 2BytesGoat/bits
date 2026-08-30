@@ -57,8 +57,8 @@ npx quartz create
 
 This will prompt you for:
 
-- A **template** (`default`, `obsidian`, `ttrpg`, `blog`) — pick the one closest to your old setup. `obsidian` is recommended if you use an Obsidian vault.
-- A **content strategy** — choose "Copy" and point it to your backed-up content folder.
+- A **template** (`default`, `obsidian`, `ttrpg`, `blog`) - pick the one closest to your old setup. `obsidian` is recommended if you use an Obsidian vault.
+- A **content strategy** - choose "Copy" and point it to your backed-up content folder.
 
 If you skipped the `create` wizard or need to restore your content manually:
 
@@ -85,7 +85,7 @@ Key changes:
 - **Configuration format**: TypeScript (`quartz.config.ts`, `quartz.layout.ts`) → YAML (`quartz.config.yaml`)
 - **Plugin system**: Plugins are now standalone Git repositories, installed via `npx quartz plugin add`
 - **Import pattern**: Community plugins use `ExternalPlugin.X()` (from `.quartz/plugins`) instead of `Plugin.X()` (from `./quartz/plugins`)
-- **Layout structure**: `quartz.layout.ts` is gone — layout position is now a per-plugin property in `quartz.config.yaml`
+- **Layout structure**: `quartz.layout.ts` is gone - layout position is now a per-plugin property in `quartz.config.yaml`
 - **Page types**: A new plugin category for page rendering (content, folder, tag pages)
 - **URL casing**: All generated URLs are now lowercased and hyphenated (e.g. `My Notes/Hello World.md` → `/my-notes/hello-world`). In v4, the original casing of file and folder names was preserved in URLs.
 
@@ -95,7 +95,7 @@ If your v4 site had URLs with uppercase letters, those URLs will return 404 erro
 
 The [[AliasRedirects]] plugin (enabled by default) automatically handles this. During build, it detects files whose original path contained uppercase characters and generates redirect pages at the old URLs. These redirect pages include proper SEO signals (`<link rel="canonical">`, `<meta http-equiv="refresh">`, `<meta name="robots" content="noindex">`) so that search engines transfer ranking to the new lowercase URLs.
 
-No manual configuration is needed — the plugin is enabled by default and the case redirect behavior is on by default. If you want to disable it, set `enableCaseRedirects: false` in the plugin options:
+No manual configuration is needed - the plugin is enabled by default and the case redirect behavior is on by default. If you want to disable it, set `enableCaseRedirects: false` in the plugin options:
 
 ```yaml title="quartz.config.yaml"
 plugins:
@@ -209,7 +209,7 @@ This ensures that new clones, pull requests, and GitHub Pages deployments all ta
 
 ## Notes for Quartz 3 Users
 
-If you're coming from Quartz 3 (the Hugo-based version), follow the same steps above — get the v5 branch, run `npx quartz create`, and import your content. There is no need to go through Quartz 4 first.
+If you're coming from Quartz 3 (the Hugo-based version), follow the same steps above - get the v5 branch, run `npx quartz create`, and import your content. There is no need to go through Quartz 4 first.
 
 ### Key changes from Quartz 3
 
@@ -220,7 +220,7 @@ If you're coming from Quartz 3 (the Hugo-based version), follow the same steps a
 
 ### Things to update
 
-- Update your deploy scripts — see the [[hosting]] guide.
+- Update your deploy scripts - see the [[hosting]] guide.
 - Ensure your default branch on GitHub is updated to `v5`.
 - [[folder and tag listings|Folder and tag listings]] have changed:
   - Folder descriptions go under `content/<folder-name>/index.md`

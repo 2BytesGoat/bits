@@ -67,7 +67,7 @@ This means the plugin is referenced in `quartz.ts` but not installed. Either:
 > [!important]
 > Most community plugins now ship with a pre-built `dist/` directory and skip the build step entirely. The build failure scenario described below mainly applies to plugins in development or older plugins that haven't adopted pre-built distribution.
 
-On a brand-new clone, `npx quartz plugin install` (or the plugin step run automatically by `npx quartz create`) may report a handful of plugins failing to build — typically around 10–15 of them. The git clone and checkout still succeed, but `npm run build` inside the plugin errors out.
+On a brand-new clone, `npx quartz plugin install` (or the plugin step run automatically by `npx quartz create`) may report a handful of plugins failing to build - typically around 10–15 of them. The git clone and checkout still succeed, but `npm run build` inside the plugin errors out.
 
 This happens because `quartz.lock.json` pins each plugin to a specific commit, and those older plugin commits may have been authored against earlier versions of `@quartz-community/types` / `@quartz-community/utils` whose published artifacts are no longer shipped in the dependency's git repo. The plugin's `tsup`/`tsc` build then cannot resolve the expected type declarations.
 
@@ -92,7 +92,7 @@ Lower the parallelism with `--concurrency` / `-c`:
 # Install one plugin at a time (safest, slowest)
 npx quartz plugin install --latest -c 1
 
-# Two at a time — usually works on 4 GB machines
+# Two at a time - usually works on 4 GB machines
 npx quartz plugin install --latest --concurrency 2
 ```
 
@@ -102,7 +102,7 @@ The same flag works for `plugin add` and the deprecated aliases (`plugin update`
 npx quartz plugin add github:quartz-community/some-plugin -c 1
 ```
 
-If `plugin install` consistently fails near the same plugin with `-c 1`, the issue is likely with that specific plugin's build, not with concurrency — try running `--verbose` to get detailed error output, and check the plugin's own repository for known issues.
+If `plugin install` consistently fails near the same plugin with `-c 1`, the issue is likely with that specific plugin's build, not with concurrency - try running `--verbose` to get detailed error output, and check the plugin's own repository for known issues.
 
 ## Content Issues
 
@@ -154,7 +154,7 @@ If you want to start over, run `npx quartz restore` to recover your content from
 ### Hot reload not working
 
 - Make sure you're using `--serve` mode: `npx quartz build --serve`
-- Check that port 3001 (WebSocket) is not blocked — this is the default `--wsPort` used for hot reload notifications
+- Check that port 3001 (WebSocket) is not blocked - this is the default `--wsPort` used for hot reload notifications
 - If developing remotely, use `--remoteDevHost` to set the correct WebSocket URL
 
 ### Port already in use

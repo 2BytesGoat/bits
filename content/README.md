@@ -1,10 +1,10 @@
 ---
-title: bits/README — what this site is
-description: For agents and Giani — what lives here, what doesn't.
+title: bits/README - what this site is
+description: For agents and Giani - what lives here, what doesn't.
 draft: true
 ---
 
-This is **bits** — Giani's side site on `bits.2bytesgoat.com`, separate repo (`2BytesGoat/bits`), deployed with Quartz v5 → GitHub Pages on push to `v5`.
+This is **bits** - Giani's side site on `bits.2bytesgoat.com`, separate repo (`2BytesGoat/bits`), deployed with Quartz v5 → GitHub Pages on push to `v5`.
 
 ## What lives here
 
@@ -19,11 +19,11 @@ This is **bits** — Giani's side site on `bits.2bytesgoat.com`, separate repo (
 ## Conventions
 
 - Quartz v5 config: `quartz.config.yaml` (YAML now, not TS like the main v4 blog)
-- `@quartz-community/cname` plugin emits `CNAME` from `baseUrl` at build — no static CNAME file
+- `@quartz-community/cname` plugin emits `CNAME` from `baseUrl` at build - no static CNAME file
 - Footer links: GitHub repo + main blog
 - Analytics: GoatCounter (`quartz.config.yaml` → `configuration.analytics`, panel at `2bytesgoat.goatcounter.com`)
-- Filenames Title Case, one canonical tag, deliberate `draft` flag (same as main blog)
-- Recipe ideas pipeline: `thoughts/INBOX.md` (dump → compost → `[recipe]` promotes to `content/`) — see `meta/RECIPE-TEMPLATE.md`
+- Filenames kebab-case under appliance/category subfolders (`content/slow-cooker/chicken-noodle-soup.md`), one canonical tag, deliberate `draft` flag (same as main blog)
+- Recipe ideas pipeline: `thoughts/INBOX.md` (dump → compost → `[recipe]` promotes to `content/`) - see `meta/RECIPE-TEMPLATE.md`
 - Voice: still read `meta/VOICE.md` / `meta/PERSONA.md` / `meta/FINGERPRINT.md` **from the main repo** before ghostwriting anything here
 
 Sign-off applies here too: Peace 🐐

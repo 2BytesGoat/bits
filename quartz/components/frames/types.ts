@@ -8,7 +8,7 @@ import { QuartzComponent, QuartzComponentProps } from "../types"
 export interface PageFrameProps {
   /** Component data shared across all components on the page */
   componentData: QuartzComponentProps
-  /** The Head component (rendered in <head>) — NOT used by frames, included for completeness */
+  /** The Head component (rendered in <head>) - NOT used by frames, included for completeness */
   head: QuartzComponent
   /** Header slot components (rendered inside <header>) */
   header: QuartzComponent[]

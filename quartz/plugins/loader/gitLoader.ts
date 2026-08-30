@@ -633,7 +633,7 @@ export function getPluginEntryPoint(name: string): string {
     }
   }
 
-  // Try common entry points — prefer compiled dist/ over raw src/
+  // Try common entry points - prefer compiled dist/ over raw src/
   const candidates = [
     path.join(searchDir, "dist", "index.js"),
     path.join(searchDir, "dist", "index.mjs"),
@@ -797,7 +797,7 @@ const NODE_BUILTINS = new Set([
 
 /**
  * Packages that must be the same JavaScript module instance at runtime across
- * all plugins and the host. These are true singletons — duplicating them causes
+ * all plugins and the host. These are true singletons - duplicating them causes
  * broken identity checks (e.g. `instanceof`, shared registries).
  *
  * This list should be kept small and explicit. Only add packages here when
@@ -1102,7 +1102,7 @@ export async function regeneratePluginIndex(
       for (const n of conflicting) {
         console.warn(
           styleText("yellow", `⚠`),
-          `Export "${n}" conflicts across plugins — use plugins["${pluginName}"].${n} in quartz.ts`,
+          `Export "${n}" conflicts across plugins - use plugins["${pluginName}"].${n} in quartz.ts`,
         )
       }
     }

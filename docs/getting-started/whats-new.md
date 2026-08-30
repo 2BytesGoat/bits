@@ -54,9 +54,9 @@ plugins:
 Benefits:
 
 - **No TypeScript knowledge required** for basic customization
-- **JSON Schema validation** — editors with YAML support show errors inline
-- **Layout defined per-plugin** — each plugin declares its own position and priority
-- **Templates** — `npx quartz create` offers preconfigured templates (default, obsidian, ttrpg, blog)
+- **JSON Schema validation** - editors with YAML support show errors inline
+- **Layout defined per-plugin** - each plugin declares its own position and priority
+- **Templates** - `npx quartz create` offers preconfigured templates (default, obsidian, ttrpg, blog)
 
 For advanced options that need JavaScript (callbacks, custom components), the `quartz.ts` override system provides full programmatic control.
 
@@ -64,31 +64,31 @@ For advanced options that need JavaScript (callbacks, custom components), the `q
 
 Quartz 5 aims for full compatibility with Obsidian's core features:
 
-- **Wikilinks** — all variations including aliases, headings, block references, and pipe escaping in tables
-- **Callouts** — all built-in types, collapsible variants, and nested callouts
-- **Highlights** — `==highlighted text==` syntax
-- **Comments** — `%%hidden comments%%` (inline and block)
-- **Tags** — `#tag` and `#nested/tag` with tag pages
-- **Custom task characters** — `[?]`, `[!]`, `[>]`, etc. preserved as `data-task` attributes
-- **Mermaid diagrams** — rendered with expand button
-- **YouTube and Tweet embeds** — via image syntax
-- **Block references** — `^block-id` with broad character support
-- **Video/audio embeds** — full format support (mp4, webm, ogv, mov, mkv, avi, flac, aac, etc.)
-- **Canvas files** — rendered as interactive, pannable pages via the canvas-page plugin
-- **Obsidian URI links** — marked with CSS class for custom styling
-- **Footnotes** — via the GitHub Flavored Markdown plugin
+- **Wikilinks** - all variations including aliases, headings, block references, and pipe escaping in tables
+- **Callouts** - all built-in types, collapsible variants, and nested callouts
+- **Highlights** - `==highlighted text==` syntax
+- **Comments** - `%%hidden comments%%` (inline and block)
+- **Tags** - `#tag` and `#nested/tag` with tag pages
+- **Custom task characters** - `[?]`, `[!]`, `[>]`, etc. preserved as `data-task` attributes
+- **Mermaid diagrams** - rendered with expand button
+- **YouTube and Tweet embeds** - via image syntax
+- **Block references** - `^block-id` with broad character support
+- **Video/audio embeds** - full format support (mp4, webm, ogv, mov, mkv, avi, flac, aac, etc.)
+- **Canvas files** - rendered as interactive, pannable pages via the canvas-page plugin
+- **Obsidian URI links** - marked with CSS class for custom styling
+- **Footnotes** - via the GitHub Flavored Markdown plugin
 
 See [[Obsidian compatibility]] for the full list.
 
 ## Page Type System
 
-Quartz 5 introduces **page types** — plugins that define how different kinds of pages are rendered:
+Quartz 5 introduces **page types** - plugins that define how different kinds of pages are rendered:
 
-- **Content pages** — regular markdown notes
-- **Folder pages** — directory listing pages
-- **Tag pages** — pages listing notes with a given tag
-- **Canvas pages** — interactive JSON Canvas renderings
-- **Bases pages** — database-style views of your content
+- **Content pages** - regular markdown notes
+- **Folder pages** - directory listing pages
+- **Tag pages** - pages listing notes with a given tag
+- **Canvas pages** - interactive JSON Canvas renderings
+- **Bases pages** - database-style views of your content
 
 Each page type can use a different [[layout#Page Frames|page frame]] for fundamentally different HTML structures (three-column, full-width, minimal, etc.).
 
@@ -110,18 +110,18 @@ plugins:
 
 Additional features:
 
-- **Groups** — combine components into flex rows/columns (e.g., toolbar with search + darkmode toggle)
-- **Conditional rendering** — show/hide components based on page properties (`condition: not-index`, `condition: has-tags`)
-- **Display modifiers** — `display: mobile-only` or `display: desktop-only`
-- **Per-page-type overrides** — different layouts for content, folder, tag, and 404 pages
+- **Groups** - combine components into flex rows/columns (e.g., toolbar with search + darkmode toggle)
+- **Conditional rendering** - show/hide components based on page properties (`condition: not-index`, `condition: has-tags`)
+- **Display modifiers** - `display: mobile-only` or `display: desktop-only`
+- **Per-page-type overrides** - different layouts for content, folder, tag, and 404 pages
 
 ## Performance
 
-- **Parallel processing** — markdown parsing uses a worker pool across all CPU cores
-- **Incremental rebuilds** — watch mode only re-processes changed files
-- **Pre-built plugins** — community plugins ship compiled `dist/` directories, skipping build-from-source on install
-- **SPA routing** — client-side navigation with `micromorph` for instant page transitions
-- **CDN-cached fonts** — Google Fonts with aggressive caching, or fully self-hosted with `fontOrigin: local`
+- **Parallel processing** - markdown parsing uses a worker pool across all CPU cores
+- **Incremental rebuilds** - watch mode only re-processes changed files
+- **Pre-built plugins** - community plugins ship compiled `dist/` directories, skipping build-from-source on install
+- **SPA routing** - client-side navigation with `micromorph` for instant page transitions
+- **CDN-cached fonts** - Google Fonts with aggressive caching, or fully self-hosted with `fontOrigin: local`
 
 ## CLI Improvements
 
@@ -140,14 +140,14 @@ The CLI is simpler and more helpful:
 
 Other improvements:
 
-- **Node.js version check** — clear error message if running on Node < 22
-- **Port conflict handling** — helpful message when port is already in use
-- **Plugin lockfile** — `quartz.lock.json` pins plugin versions for reproducible builds
-- **Concurrency control** — `--concurrency` flag for memory-constrained environments
+- **Node.js version check** - clear error message if running on Node < 22
+- **Port conflict handling** - helpful message when port is already in use
+- **Plugin lockfile** - `quartz.lock.json` pins plugin versions for reproducible builds
+- **Concurrency control** - `--concurrency` flag for memory-constrained environments
 
 ## Internationalization
 
-Quartz 5 supports multiple locales out of the box. Set `locale: ja-JP` (or any supported locale) in your config to translate all UI strings — search placeholders, "table of contents", date formatting, and more.
+Quartz 5 supports multiple locales out of the box. Set `locale: ja-JP` (or any supported locale) in your config to translate all UI strings - search placeholders, "table of contents", date formatting, and more.
 
 ## New Plugins
 

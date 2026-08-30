@@ -54,9 +54,9 @@ This question is best answered by tracing what happens when a user (you!) runs `
 
 Quartz v5 separates shared code into three community packages, each with a distinct responsibility:
 
-- **`@quartz-community/types`** — Type definitions, interfaces, and the canonical `vfile` DataMap augmentation. This is the "contract" between Quartz and plugins. It has no runtime dependencies.
-- **`@quartz-community/utils`** — Shared utility functions (path manipulation, DOM helpers, sorting, date formatting, JSX conversion, etc.). Depends on `@quartz-community/types`.
-- **`@quartz-community/runtime`** — Browser-only utilities for client-side scripts (event handling, navigation, storage, script loading). Depends on both `types` and `utils`.
+- **`@quartz-community/types`** - Type definitions, interfaces, and the canonical `vfile` DataMap augmentation. This is the "contract" between Quartz and plugins. It has no runtime dependencies.
+- **`@quartz-community/utils`** - Shared utility functions (path manipulation, DOM helpers, sorting, date formatting, JSX conversion, etc.). Depends on `@quartz-community/types`.
+- **`@quartz-community/runtime`** - Browser-only utilities for client-side scripts (event handling, navigation, storage, script loading). Depends on both `types` and `utils`.
 
 ```
 types (no deps)
@@ -86,7 +86,7 @@ There are now four plugin categories:
 - **Page Types**: Define how pages are rendered. Each page type handles a specific kind of page (content notes, folder listings, tag listings, 404). The `PageTypeDispatcher` emitter routes pages to the appropriate page type plugin based on the content.
 - **Bases Views**: Custom view renderers for the `bases-page` plugin's database-like view system. Plugins can register new view types (e.g., timeline, kanban) via the `ViewRegistry`. See [[making plugins#Bases Views]] for details.
 
-Note that plugin types are **not mutually exclusive** — a single plugin can be a transformer AND provide components (e.g., `obsidian-flavored-markdown`), or be a page type AND provide custom frames (e.g., `canvas-page`).
+Note that plugin types are **not mutually exclusive** - a single plugin can be a transformer AND provide components (e.g., `obsidian-flavored-markdown`), or be a page type AND provide custom frames (e.g., `canvas-page`).
 
 ### Plugin Resolution
 
@@ -99,18 +99,18 @@ When `npx quartz plugin add github:quartz-community/explorer` is run:
 
 ### Plugin CLI Commands
 
-- `npx quartz plugin add github:quartz-community/<name>` — Install a community plugin
-- `npx quartz plugin install --latest` — Update all plugins to latest commits
-- `npx quartz plugin install --clean` — Restore plugins from locked commits in `quartz.lock.json` (used in CI/CD)
-- `npx quartz plugin remove <name>` — Remove an installed plugin
+- `npx quartz plugin add github:quartz-community/<name>` - Install a community plugin
+- `npx quartz plugin install --latest` - Update all plugins to latest commits
+- `npx quartz plugin install --clean` - Restore plugins from locked commits in `quartz.lock.json` (used in CI/CD)
+- `npx quartz plugin remove <name>` - Remove an installed plugin
 
 ### Plugin Structure
 
 Each community plugin repository contains:
 
-- `src/index.ts` — Plugin entry point exporting the plugin function
-- `tsup.config.ts` — Build configuration using tsup
-- `package.json` — Declares dependencies on `@quartz-community/types` and `@quartz-community/utils`
+- `src/index.ts` - Plugin entry point exporting the plugin function
+- `tsup.config.ts` - Build configuration using tsup
+- `package.json` - Declares dependencies on `@quartz-community/types` and `@quartz-community/utils`
 
 The architecture and design of the plugin system was intentionally left pretty vague here as this is described in much more depth in the guide on [[making plugins|creating plugins]].
 
@@ -120,12 +120,12 @@ Page frames control the inner HTML structure of each page. While the outer shell
 
 The frame system lives in `quartz/components/frames/` and consists of:
 
-- `types.ts` — Defines the `PageFrame` and `PageFrameProps` interfaces
-- `DefaultFrame.tsx` — Three-column layout (left sidebar, center, right sidebar, footer)
-- `FullWidthFrame.tsx` — No sidebars, single center column
-- `MinimalFrame.tsx` — No sidebars, no header/beforeBody, just content and footer
-- `registry.ts` — `FrameRegistry` singleton for plugin-registered frames
-- `index.ts` — `resolveFrame()` function and built-in frame registry
+- `types.ts` - Defines the `PageFrame` and `PageFrameProps` interfaces
+- `DefaultFrame.tsx` - Three-column layout (left sidebar, center, right sidebar, footer)
+- `FullWidthFrame.tsx` - No sidebars, single center column
+- `MinimalFrame.tsx` - No sidebars, no header/beforeBody, just content and footer
+- `registry.ts` - `FrameRegistry` singleton for plugin-registered frames
+- `index.ts` - `resolveFrame()` function and built-in frame registry
 
 ### Frame Registry
 

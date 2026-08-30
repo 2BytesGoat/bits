@@ -13,7 +13,7 @@ To fetch the latest Quartz updates, simply run
 npx quartz upgrade
 ```
 
-As Quartz uses [git](https://git-scm.com/) under the hood for versioning, upgrading effectively 'pulls' in the updates from the official Quartz GitHub repository. Merge conflicts in `quartz.lock.json` are handled automatically — Quartz backs up your lockfile before pulling and restores it afterward. For other files with local changes that conflict with the updates, you may need to resolve these manually yourself (or, pull manually using `git pull origin upstream`).
+As Quartz uses [git](https://git-scm.com/) under the hood for versioning, upgrading effectively 'pulls' in the updates from the official Quartz GitHub repository. Merge conflicts in `quartz.lock.json` are handled automatically - Quartz backs up your lockfile before pulling and restores it afterward. For other files with local changes that conflict with the updates, you may need to resolve these manually yourself (or, pull manually using `git pull origin upstream`).
 
 > [!hint]
 > Quartz will try to cache your content before upgrading to try and prevent merge conflicts. If you get a conflict mid-merge, you can stop the merge and then run `npx quartz restore` to restore your content from the cache.
@@ -30,7 +30,7 @@ See the [[upgrade|CLI reference for upgrade]] for more details on available flag
 
 ### Layout System Changes
 
-The `footer` layout slot is now an array of components, consistent with other layout slots like `header`, `left`, and `right`. Additionally, `header` and `footer` are now configurable layout positions — plugins can declare `layout: { position: header }` or `layout: { position: footer }` in their YAML config.
+The `footer` layout slot is now an array of components, consistent with other layout slots like `header`, `left`, and `right`. Additionally, `header` and `footer` are now configurable layout positions - plugins can declare `layout: { position: header }` or `layout: { position: footer }` in their YAML config.
 
 **If you override layouts in `quartz.ts`**, update any `footer` assignments to use arrays:
 
@@ -60,9 +60,9 @@ render({ footer, ...rest }: PageFrameProps) {
 }
 ```
 
-Both changes are caught by TypeScript at compile time — running `npx quartz build` will show the error.
+Both changes are caught by TypeScript at compile time - running `npx quartz build` will show the error.
 
-No changes are needed for `quartz.config.yaml` — the YAML format is unchanged.
+No changes are needed for `quartz.config.yaml` - the YAML format is unchanged.
 
 ### Cleaning Up Unused Plugins
 

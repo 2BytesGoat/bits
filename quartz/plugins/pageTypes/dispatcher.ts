@@ -143,7 +143,7 @@ function populateVirtualPageHtmlAst(
       const htmlAst = fromHtml(htmlString, { fragment: true }) as HtmlRoot
       ve.vfile.data.htmlAst = htmlAst
     } catch {
-      // Body rendering failed — leave htmlAst empty so transclusion falls
+      // Body rendering failed - leave htmlAst empty so transclusion falls
       // back to the default title-only display.
     }
   }

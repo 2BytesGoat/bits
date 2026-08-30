@@ -221,7 +221,7 @@ export function configExists() {
 export function createConfigFromDefault() {
   const defaultData = readDefaultPluginsJson()
   if (!defaultData) {
-    // No default available — create minimal config
+    // No default available - create minimal config
     const minimal = {
       configuration: {
         pageTitle: "Quartz",
@@ -288,7 +288,7 @@ export function createConfigFromTemplate(templateName) {
   const templatePath = path.join(TEMPLATES_DIR, `${templateName}.yaml`)
   const templateData = readFileAsData(templatePath)
   if (!templateData) {
-    // Template file missing — fall back to default config creation
+    // Template file missing - fall back to default config creation
     return createConfigFromDefault()
   }
 
@@ -310,7 +310,7 @@ export function createConfigFromTemplate(templateName) {
  * @returns {string} The lockfile key that corresponds to this plugin
  */
 export function resolveLockfileName(name, lockfile, pluginsJson) {
-  // Direct match — no resolution needed
+  // Direct match - no resolution needed
   if (lockfile?.plugins?.[name]) return name
 
   // Check if any config entry with this overridden name maps to a different lockfile key

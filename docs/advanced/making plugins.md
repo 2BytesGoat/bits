@@ -394,7 +394,7 @@ export interface QuartzPageTypePluginInstance {
 
 ### Providing Custom Frames
 
-Plugins can ship their own [[layout#Page Frames|page frames]] — custom page layouts that control how the HTML structure (sidebars, header, content area, footer) is arranged. This is useful for page types that need fundamentally different layouts (e.g. a fullscreen canvas, a presentation mode, a dashboard).
+Plugins can ship their own [[layout#Page Frames|page frames]] - custom page layouts that control how the HTML structure (sidebars, header, content area, footer) is arranged. This is useful for page types that need fundamentally different layouts (e.g. a fullscreen canvas, a presentation mode, a dashboard).
 
 To provide a custom frame:
 
@@ -428,7 +428,7 @@ export const MyFrame: PageFrame = {
 Key requirements:
 
 - `name`: A unique string identifier. This is what page types and YAML config reference.
-- `render()`: Receives all layout slots (header, sidebars, content, footer) and returns JSX for the inner page structure. Note that `footer` is a `QuartzComponent[]` (an array) — frames should iterate over it with `.map()` to render all footer components.
+- `render()`: Receives all layout slots (header, sidebars, content, footer) and returns JSX for the inner page structure. Note that `footer` is a `QuartzComponent[]` (an array) - frames should iterate over it with `.map()` to render all footer components.
 - `css` (optional): Frame-specific CSS. Scope it with `.page[data-frame="my-frame"]` selectors to avoid conflicts.
 
 **2. Re-export the frame:**
@@ -521,11 +521,11 @@ The `ViewRegistry` is a global singleton (via `Symbol.for`) ensuring all copies 
 
 ## Building and Distribution
 
-Quartz v5 plugins ship pre-built `dist/` in their repositories. When a user installs your plugin, Quartz detects the pre-built output and skips the install/build cycle entirely — making installation near-instant.
+Quartz v5 plugins ship pre-built `dist/` in their repositories. When a user installs your plugin, Quartz detects the pre-built output and skips the install/build cycle entirely - making installation near-instant.
 
 ### Build Configuration
 
-The plugin template's `tsup.config.ts` bundles all dependencies by default. Only **singleton externals** — packages that must be the same instance across all plugins — are left unbundled:
+The plugin template's `tsup.config.ts` bundles all dependencies by default. Only **singleton externals** - packages that must be the same instance across all plugins - are left unbundled:
 
 ```ts
 const SINGLETON_EXTERNALS = [
@@ -547,7 +547,7 @@ export default defineConfig({
 })
 ```
 
-This means your plugin's `dist/index.js` is self-contained — no `npm install` needed at install time.
+This means your plugin's `dist/index.js` is self-contained - no `npm install` needed at install time.
 
 ### Shipping Pre-built Output
 
@@ -745,4 +745,4 @@ npx quartz plugin prune --dry-run
 
 For plugins that provide visual components (like Explorer, Graph, Search), see the [[creating components|creating component plugins]] guide.
 
-Component-only plugins (those with `"category": ["component"]` in their manifest) are loaded via side-effect import rather than a factory function. If your component-only plugin needs to receive user options from `quartz.config.yaml`, export an `init(options)` function — see [[creating components#Receiving YAML Options in Component-Only Plugins|receiving YAML options]] for details.
+Component-only plugins (those with `"category": ["component"]` in their manifest) are loaded via side-effect import rather than a factory function. If your component-only plugin needs to receive user options from `quartz.config.yaml`, export an `init(options)` function - see [[creating components#Receiving YAML Options in Component-Only Plugins|receiving YAML options]] for details.

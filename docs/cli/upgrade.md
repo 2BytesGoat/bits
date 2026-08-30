@@ -14,12 +14,12 @@ npx quartz upgrade
 
 When you run `npx quartz upgrade`, Quartz performs the following steps:
 
-1. **Backs up your content** — your content folder is cached locally to prevent data loss.
-2. **Pulls the latest Quartz code** — fetches and merges from the official upstream repository (`upstream/v5`) using Git.
-3. **Shows version changes** — displays the version transition (e.g., `v5.0.0 → v5.1.0`) or confirms you're already up to date.
-4. **Updates dependencies** — runs `npm install` to ensure all packages match the new version.
-5. **Restores plugins** — reinstalls plugins from `quartz.lock.json` to ensure compatibility.
-6. **Checks plugin compatibility** — verifies that installed plugins are compatible with the new Quartz version.
+1. **Backs up your content** - your content folder is cached locally to prevent data loss.
+2. **Pulls the latest Quartz code** - fetches and merges from the official upstream repository (`upstream/v5`) using Git.
+3. **Shows version changes** - displays the version transition (e.g., `v5.0.0 → v5.1.0`) or confirms you're already up to date.
+4. **Updates dependencies** - runs `npm install` to ensure all packages match the new version.
+5. **Restores plugins** - reinstalls plugins from `quartz.lock.json` to ensure compatibility.
+6. **Checks plugin compatibility** - verifies that installed plugins are compatible with the new Quartz version.
 
 ## Handling Conflicts
 
@@ -43,6 +43,6 @@ The `upgrade` command supports the standard [[cli/index|common flags]] (`--direc
 
 ## See Also
 
-- [[cli/plugin|quartz plugin install --latest]] — update installed plugins
-- [[upgrading|Upgrading Quartz]] — detailed upgrading guide
-- [[restore|quartz restore]] — recover content from cache
+- [[cli/plugin|quartz plugin install --latest]] - update installed plugins
+- [[upgrading|Upgrading Quartz]] - detailed upgrading guide
+- [[restore|quartz restore]] - recover content from cache

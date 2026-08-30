@@ -5,14 +5,14 @@
 // light mode text in the logo's purple family (dark mode keeps its own vars):
 // --dark (#260141, exact logo purple) drives headings/strong/code/article-title,
 // --darkgray (same hue, lifted) drives body text so the page isn't neon-heavy.
-// Only override in light mode — dark sidebar/UI would swallow the dark purple.
+// Only override in light mode - dark sidebar/UI would swallow the dark purple.
 :root[saved-theme="light"] {
   --dark: #260141;
   --darkgray: #3d1a52;
 }
 
 // callouts: no block gaps by default; a <p> (i.e. a blank line was used in
-// markdown) gets a small gap above only — headings hug their own list
+// markdown) gets a small gap above only - headings hug their own list
 .callout {
   & > .callout-content {
     & > ul,
@@ -35,6 +35,59 @@
   padding-bottom: 1rem;
 }
 
+// "flat" block-embeds (![[page#^id|flat]]): an ingredient list synced from a
+// component recipe inside this page's own Shopping List callout. The alias is
+// only a marker - strip the transcluded card's own title, border, padding and
+// the "Link to original" footer so it blends in as a plain group.
+.transclude[data-embed-alias="flat"] {
+  // the wrapper itself is a blockquote: drop its border (the stray "|"),
+  // padding and margins
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  & > .callout {
+    border: none;
+    background: transparent;
+    padding: 0;
+
+    & > .callout-title {
+      display: none;
+    }
+
+    & > .callout-content {
+      padding-bottom: 0;
+    }
+
+    // sibling groups keep the browser-default 2.5rem list indent, but
+    // base.scss clamps uls inside any .transclude to 1rem - undo that so the
+    // synced checklist lines up with them
+    & ul {
+      padding-inline-start: 2.5rem;
+    }
+  }
+
+  & > .transclude-src {
+    display: none;
+  }
+}
+
+// blank lines around the embed line wrap it in empty <p>s inside the callout;
+// drop them so the synced group sits tight between its header and the next one
+.callout-content > p:empty:has(+ .transclude[data-embed-alias="flat"]),
+.callout-content > .transclude[data-embed-alias="flat"] + p:empty {
+  display: none;
+}
+
+// "from: <page>" attribution: paragraph right after a flat embed (one empty
+// <p> apart) - muted, small, tucked under the synced group
+.callout-content > .transclude[data-embed-alias="flat"] + p:empty + p {
+  & > a {
+    font-size: 0.85rem;
+    font-weight: initial;
+  }
+}
+
 // keep collapsed callouts tight
 .callout.is-collapsed .callout-content {
   padding-bottom: 0;
@@ -42,7 +95,7 @@
 
 // sidebar title: goat logo + site name, the whole thing links home.
 // Two full-color PNGs (light: purple strokes + white fills; dark: white
-// strokes + purple fills — both on transparent, art by Giani), swapped by
+// strokes + purple fills - both on transparent, art by Giani), swapped by
 // theme attribute. Plain background images, no mask/filter needed.
 // "bits" text stays in the DOM for screen readers; the visible label is the
 // ::after below.

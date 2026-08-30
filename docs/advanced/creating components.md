@@ -22,7 +22,7 @@ In effect, components allow you to write a JavaScript function that takes some d
 
 ## Community Component Plugins
 
-In v5, most components are community plugins — standalone repositories that export a `QuartzComponent`. These plugins are decoupled from the core Quartz repository, allowing for easier maintenance and sharing.
+In v5, most components are community plugins - standalone repositories that export a `QuartzComponent`. These plugins are decoupled from the core Quartz repository, allowing for easier maintenance and sharing.
 
 ### Getting Started
 
@@ -148,7 +148,7 @@ document.addEventListener("nav", () => {
 
 You can also use the `"prenav"` event, which fires before the page is replaced during SPA navigation.
 
-The `"render"` event fires when the DOM has been updated in-place without a full navigation — for example, after content decryption or dynamic DOM modifications by other plugins. If your component attaches event listeners to content elements, listen for `"render"` in addition to `"nav"` to ensure re-initialization:
+The `"render"` event fires when the DOM has been updated in-place without a full navigation - for example, after content decryption or dynamic DOM modifications by other plugins. If your component attaches event listeners to content elements, listen for `"render"` in addition to `"nav"` to ensure re-initialization:
 
 ```ts
 function setupMyComponent() {
@@ -220,7 +220,7 @@ export const layout = await loadQuartzLayout({
 
 ### Receiving YAML Options in Component-Only Plugins
 
-Component plugins that also belong to a processing category (transformer, filter, emitter, page type) receive options through their factory function automatically. However, **component-only plugins** — those whose manifest declares only `"category": ["component"]` — are loaded via side-effect import and don't go through the factory path.
+Component plugins that also belong to a processing category (transformer, filter, emitter, page type) receive options through their factory function automatically. However, **component-only plugins** - those whose manifest declares only `"category": ["component"]` - are loaded via side-effect import and don't go through the factory path.
 
 To receive YAML options in a component-only plugin, export an `init` function from your entry point:
 
@@ -232,7 +232,7 @@ export function init(options?: Record<string, unknown>): void {
 }
 ```
 
-Quartz's config-loader calls `init()` after importing the module, passing the merged result of your manifest's `defaultOptions` and the user's `options` from `quartz.config.yaml`. The merge follows the same `{ ...defaultOptions, ...userOptions }` pattern used for processing plugins — user values take precedence.
+Quartz's config-loader calls `init()` after importing the module, passing the merged result of your manifest's `defaultOptions` and the user's `options` from `quartz.config.yaml`. The merge follows the same `{ ...defaultOptions, ...userOptions }` pattern used for processing plugins - user values take precedence.
 
 Declare your defaults in `package.json`:
 
@@ -247,18 +247,18 @@ Declare your defaults in `package.json`:
 }
 ```
 
-If your plugin does not export `init`, it continues to work as a pure side-effect import — this is fully backward compatible.
+If your plugin does not export `init`, it continues to work as a pure side-effect import - this is fully backward compatible.
 
 ## Internal Components
 
 Quartz also has internal components that provide layout utilities. These live in `quartz/components/` and are primarily used for structural purposes:
 
-- `Component.Head()` — renders the `<head>` tag
-- `Component.Spacer()` — adds flexible space
-- `Component.Flex()` — flexible layout container
-- `Component.MobileOnly()` — shows component only on mobile
-- `Component.DesktopOnly()` — shows component only on desktop
-- `Component.ConditionalRender()` — conditionally renders based on page data
+- `Component.Head()` - renders the `<head>` tag
+- `Component.Spacer()` - adds flexible space
+- `Component.Flex()` - flexible layout container
+- `Component.MobileOnly()` - shows component only on mobile
+- `Component.DesktopOnly()` - shows component only on desktop
+- `Component.ConditionalRender()` - conditionally renders based on page data
 
 See [[layout-components]] for more details on these utilities.
 

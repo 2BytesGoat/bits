@@ -13,7 +13,7 @@ tags:
   - carrot
   - celery
   - herbs
-servings: 6+
+servings: 6
 active: 30 min
 total: 7-7.5 h
 ---
@@ -21,7 +21,7 @@ total: 7-7.5 h
 <!-- ![[soup-final.jpg]] -->
 
 ```recipe-summary
-yield: 6+ servings · prep time: 30 min · cook time: 6–7 h
+yield: 6 servings · prep time: 30 min · cook time: 6–7 h
 total time: 7 hours 30 minutes
 ```
 
@@ -61,7 +61,7 @@ total time: 7 hours 30 minutes
 
 Depending on your mood you can also use:
 
-- **Boneless Chicken**: instead of using backs and necks you can go with thighs or breast and add 8 cups of chicken broth
+- **Boneless Chicken**: instead of using backs and necks you can go with thighs or breast and add 1900 ml of chicken broth
 - **Rice instead of noodles**: long-grain rice 180 ml goes in with the water (Step 2), LOW 5–6 h, loosen with boiling water if it over-thickens
 
 ## Preparation
@@ -91,7 +91,7 @@ Depending on your mood you can also use:
 
 <!-- ![[soup-step-3.jpg]] ← image slots live under the step they show -->
 
-12. Chicken out, bones out — shred the meat with two forks
+12. Chicken out, bones out - shred the meat with two forks
 13. Return the shredded chicken to the pot
 
 ### Step 4 - Add the starches

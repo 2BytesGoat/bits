@@ -321,7 +321,7 @@ Quartz emits CSS and JS files with content hashes in their filenames (e.g. `inde
 
 ### Cloudflare Pages / Vercel / Netlify
 
-These platforms handle caching automatically. No configuration is needed — hashed assets will be served with appropriate cache headers out of the box.
+These platforms handle caching automatically. No configuration is needed - hashed assets will be served with appropriate cache headers out of the box.
 
 ### Nginx
 

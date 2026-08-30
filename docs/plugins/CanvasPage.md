@@ -26,8 +26,8 @@ This plugin accepts the following configuration options:
 
 The canvas-page plugin provides its own `"canvas"` page frame via the [[layout#Page Frames|Frame Registry]]. This frame:
 
-- Renders the canvas in **fullscreen mode** by default (100vw × 100vh), giving the canvas maximum screen space — leaning into the "endless canvas" concept of JSON Canvas.
-- Provides a **togglable left sidebar** that slides in from the left edge. This is the only layout slot available — it renders the same components as the `left` sidebar on content pages (e.g., Explorer, Search, Page Title).
+- Renders the canvas in **fullscreen mode** by default (100vw × 100vh), giving the canvas maximum screen space - leaning into the "endless canvas" concept of JSON Canvas.
+- Provides a **togglable left sidebar** that slides in from the left edge. This is the only layout slot available - it renders the same components as the `left` sidebar on content pages (e.g., Explorer, Search, Page Title).
 - The sidebar toggle button (hamburger/close icon) is positioned in the top-left corner.
 - Canvas controls (zoom in, zoom out, reset) are positioned on the right side.
 - On mobile, the sidebar overlays the canvas rather than pushing it aside.

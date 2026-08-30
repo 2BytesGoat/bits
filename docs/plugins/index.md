@@ -17,7 +17,7 @@ Quartz plugins fall into several categories:
 
 - **Transformers** process content during the build, e.g. parsing frontmatter, highlighting syntax, or resolving links.
 - **Filters** decide which content files to include or exclude from the output.
-- **Page Types** generate HTML pages — one per content file, folder, tag, canvas, or bases view.
+- **Page Types** generate HTML pages - one per content file, folder, tag, canvas, or bases view.
 - **Components** render UI elements in the page layout (sidebars, headers, footers, etc.).
 
 ## First-party plugins

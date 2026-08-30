@@ -4,7 +4,7 @@ import HeaderConstructor from "../Header"
 const Header = HeaderConstructor()
 
 /**
- * Full-width page frame — no sidebars. The center content area spans the
+ * Full-width page frame - no sidebars. The center content area spans the
  * full width of the page. Header, beforeBody, body, afterBody, and footer
  * are all rendered in a single column.
  *

@@ -112,7 +112,7 @@ export class ComponentRegistry {
     return results
   }
 
-  /** @internal For testing only — resets all registry state. */
+  /** @internal For testing only - resets all registry state. */
   clear(): void {
     this.components.clear()
     this.instanceCache.clear()

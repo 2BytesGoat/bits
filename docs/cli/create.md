@@ -29,7 +29,7 @@ When you run `quartz create`, you can choose a configuration template that pre-c
 
 During setup, Quartz will ask for the base URL of your site. This is the URL where your site will be deployed (e.g. `mysite.github.io/quartz`).
 
-- Do **not** include the protocol (`https://`) — if you do, it will be automatically stripped.
+- Do **not** include the protocol (`https://`) - if you do, it will be automatically stripped.
 - Trailing slashes are also removed automatically.
 - See [[configuration]] for more details on how `baseUrl` is used.
 
