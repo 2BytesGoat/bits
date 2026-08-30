@@ -31,6 +31,18 @@
   padding-bottom: 0;
 }
 
+// sidebar title (the clickable "bits" home link) replaced by the goat logo;
+// text stays in the DOM for screen readers / no-CSS, just visually hidden.
+// No dark-mode filter: the dark purple reads fine on the dark sidebar too.
+.page-title a {
+  display: block;
+  width: 56px;
+  height: 56px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: url("/static/logo_bw.png") center / contain no-repeat;
+}
+
 // ```recipe-summary blocks render as centered muted strips (recipe meta lines)
 pre[data-language="recipe-summary"] {
   border: none;
