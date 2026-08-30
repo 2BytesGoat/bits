@@ -50,7 +50,7 @@
   width: 48px;
   height: 48px;
   flex-shrink: 0;
-  background-color: var(--darkgray);
+  background-color: currentColor;
   mask: url("/static/logo_bw.png") center / contain no-repeat;
   -webkit-mask: url("/static/logo_bw.png") center / contain no-repeat;
 
