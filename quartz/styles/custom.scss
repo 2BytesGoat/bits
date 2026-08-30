@@ -32,11 +32,9 @@
 }
 
 // sidebar title: goat logo + site name, the whole thing links home.
-// Logo PNG is strokes-only on transparent, so a CSS mask paints exactly the
-// strokes with a theme color: --darkgray (near-black) in light mode,
-// automatic near-white in dark mode since the CSS variables flip with it.
-// The earlier "cursed" render was the mask + white-background image (the
-// whole square got painted); with the transparent version it's clean.
+// Two full-color PNGs (light: purple strokes + white fills; dark: white
+// strokes + purple fills — both on transparent, art by Giani), swapped by
+// theme attribute. Plain background images, no mask/filter needed.
 // "bits" text stays in the DOM for screen readers; the visible label is the
 // ::after below.
 .page-title a {
@@ -50,14 +48,16 @@
   width: 48px;
   height: 48px;
   flex-shrink: 0;
-  background-color: currentColor;
-  mask: url("/static/logo_bw.png") center / contain no-repeat;
-  -webkit-mask: url("/static/logo_bw.png") center / contain no-repeat;
+  background: url("/static/logo_light.png") center / contain no-repeat;
 
   @media all and ($mobile) {
     width: 36px;
     height: 36px;
   }
+}
+
+:root[saved-theme="dark"] .page-title a::before {
+  background-image: url("/static/logo_dark.png");
 }
 
 .page-title a::after {
