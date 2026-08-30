@@ -1,5 +1,5 @@
 ---
-title: Bits and Bites
+title: Bits & Bites
 subtitle: by 2BytesGoat
 ---
 
